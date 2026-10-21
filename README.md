@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
-<a href="https://github.com/ishandutta2007/Awesome-Event-Streaming-Clients/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Event-Streaming-Clients?style=flat-square&color=gold" alt="GitHub Stars"/></a>
+<a href="https://github.com/ishandutta2007/Awesome-Event-Streaming-Clients/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Event-Streaming-Clients?style=flat-square&color=gold" alt="GitHub_Stars"/></a>
 <a href="https://github.com/ishandutta2007/Awesome-Event-Streaming-Clients/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-Event-Streaming-Clients?style=flat-square&color=blue" alt="GitHub Forks"/></a>
 <a href="https://github.com/ishandutta2007/Awesome-Event-Streaming-Clients/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License"/></a>
 <a href="https://github.com/ishandutta2007/Awesome-Event-Streaming-Clients/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome"/></a>
@@ -43,7 +43,7 @@ This repository provides an authoritative, benchmark-informed directory covering
   - [SaaS Pricing &amp; Tier Comparison Table](#saas-pricing--tier-comparison-table)
   - [Deep Dives: Cloud Streaming Platforms](#deep-dives-cloud-streaming-platforms)
 - [💻 Open-Source GitHub Projects &amp; Clients](#-open-source-github-projects--clients)
-  - [Open-Source Repositories Ranked by GitHub Stars](#open-source-repositories-ranked-by-github-stars)
+  - [Open-Source Repositories Ranked by GitHub_Stars](#open-source-repositories-ranked-by-github-stars)
   - [Open-Source Project Profiles](#open-source-project-profiles)
 - [🧩 Architectural Selection Matrix](#-architectural-selection-matrix)
 - [🤝 How to Contribute](#-how-to-contribute)
@@ -94,13 +94,13 @@ The table below outlines the primary hosted event streaming platforms, sorted in
 
 ## 💻 Open-Source GitHub Projects &amp; Clients
 
-Below is the ranked inventory of open-source streaming engines, client drivers, and pipeline utilities, **sorted strictly in descending order by GitHub Stars**.
+Below is the ranked inventory of open-source streaming engines, client drivers, and pipeline utilities, **sorted strictly in descending order by GitHub_Stars**.
 
-Beside each project name is a social-style badge displaying current GitHub stars that links directly to the project's stargazers page.
+Beside each project name is a social-style badge displaying current GitHub_Stars that links directly to the project's stargazers page.
 
-### Open-Source Repositories Ranked by GitHub Stars
+### Open-Source Repositories Ranked by GitHub_Stars
 
-| # | 📦 Repository &amp; Stargazers Link | ⭐ Star Badge (Click to View Stargazers) | 💻 Language &amp; Role | 🔍 Description &amp; Primary Use Case |
+| # | 📦 Repository &amp; Stargazers Link | ⭐ Stars_Badge (Click to View Stargazers) | 💻 Language &amp; Role | 🔍 Description &amp; Primary Use Case |
 | :-: | :--- | :---: | :--- | :--- |
 | **1** | **[Apache Kafka](https://github.com/apache/kafka)** | [![Stars](https://img.shields.io/github/stars/apache/kafka?style=social&color=white)](https://github.com/apache/kafka/stargazers) | Java / Scala <br/>*(Engine &amp; Core Clients)* | The industry standard distributed event store and stream processing platform. Features native KRaft consensus, Kafka Streams library, and Kafka Connect framework. |
 | **2** | **[Apache Pulsar](https://github.com/apache/pulsar)** | [![Stars](https://img.shields.io/github/stars/apache/pulsar?style=social&color=white)](https://github.com/apache/pulsar/stargazers) | Java / C++ <br/>*(Messaging &amp; Streaming)* | Multi-tenant, distributed pub-sub messaging and streaming platform with tiered storage (BookKeeper) and native multi-datacenter geo-replication. |
@@ -191,7 +191,7 @@ We welcome additions, client benchmarks, and ecosystem updates from data enginee
 2. 🌿 **Create a new branch** (`git checkout -b feature/add-client`).
 3. 📝 **Add or update an entry** in `README.md`:
    - For SaaS products: Include specific tier pricing, verified free tier limits, company valuation/revenue, and supported wire protocols.
-   - For Open-Source repositories: Add the social star badge linking to the repo's stargazers page and ensure the star-sorted sequence is preserved.
+   - For Open-Source repositories: Add the social Stars_Badge linking to the repo's stargazers page and ensure the star-sorted sequence is preserved.
 4. ✅ **Ensure formatting passes** clean markdown guidelines and links are valid.
 5. 🚀 **Submit a Pull Request** with a descriptive summary of your additions.
 
