@@ -10,8 +10,8 @@
     <!-- Title Gradient -->
     <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#38bdf8"/>
-      <stop offset="40%" stop-color="#818cf8"/>
-      <stop offset="80%" stop-color="#c084fc"/>
+      <stop offset="35%" stop-color="#818cf8"/>
+      <stop offset="70%" stop-color="#c084fc"/>
       <stop offset="100%" stop-color="#f472b6"/>
     </linearGradient>
 
@@ -21,201 +21,190 @@
       <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.8"/>
       <stop offset="100%" stop-color="#818cf8" stop-opacity="0.1"/>
     </linearGradient>
+
     <linearGradient id="beam2" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#f472b6" stop-opacity="0.1"/>
       <stop offset="50%" stop-color="#c084fc" stop-opacity="0.8"/>
       <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.1"/>
     </linearGradient>
 
-    <!-- Glow Filter -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4" result="blur" />
+    <!-- Node Glow Filter -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over"/>
     </filter>
 
-    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    <!-- High-Contrast Text Drop Shadow -->
+    <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.95"/>
+    </filter>
+
+    <filter id="subShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000000" flood-opacity="0.9"/>
     </filter>
   </defs>
 
   <style>
-    /* Stream Animations */
-    @keyframes dashMove {
-      0% { stroke-dashoffset: 600; }
-      100% { stroke-dashoffset: 0; }
+    .brand-title {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 34px;
+      letter-spacing: -0.5px;
     }
-    @keyframes pulseNode {
-      0%, 100% { transform: scale(1); opacity: 0.6; }
-      50% { transform: scale(1.3); opacity: 1; }
+    .brand-subtitle {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 15px;
     }
-    @keyframes particleFlow1 {
-      0% { transform: translateX(0); opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { transform: translateX(860px); opacity: 0; }
+    .category-label {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 2px;
     }
-    @keyframes particleFlow2 {
-      0% { transform: translateX(860px); opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { transform: translateX(0); opacity: 0; }
+    .pill-text {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 12px;
     }
-    @keyframes floatCard {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-4px); }
-    }
-
-    .stream-line-1 {
-      stroke: url(#beam1);
-      stroke-width: 2.5;
-      stroke-dasharray: 20 15;
-      animation: dashMove 12s linear infinite;
-    }
-    .stream-line-2 {
-      stroke: url(#beam2);
-      stroke-width: 2;
-      stroke-dasharray: 15 25;
-      animation: dashMove 16s linear infinite reverse;
-    }
-    .stream-line-3 {
-      stroke: #6366f1;
-      stroke-width: 1.5;
-      stroke-opacity: 0.35;
-      stroke-dasharray: 8 12;
-      animation: dashMove 20s linear infinite;
-    }
-
-    .particle-1 {
-      animation: particleFlow1 7s ease-in-out infinite;
-    }
-    .particle-2 {
-      animation: particleFlow1 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-      animation-delay: -3s;
-    }
-    .particle-3 {
-      animation: particleFlow2 8s ease-in-out infinite;
-      animation-delay: -1.5s;
-    }
-
-    .pulsing-node {
-      transform-origin: center;
-      animation: pulseNode 3s ease-in-out infinite;
-    }
-    .float-item {
-      animation: floatCard 4s ease-in-out infinite;
-    }
-    .float-item-delay {
-      animation: floatCard 4.5s ease-in-out infinite;
-      animation-delay: -2s;
+    .badge-text {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.5px;
     }
   </style>
 
-  <!-- Deep Tech Background -->
+  <!-- Deep Tech Background Canvas -->
   <rect width="960" height="280" rx="16" fill="url(#bgGrad)"/>
   <rect width="958" height="278" x="1" y="1" rx="15" fill="none" stroke="#1e293b" stroke-width="1.5"/>
 
-  <!-- Dynamic Event Flow Lines (Background Layer) -->
-  <g opacity="0.75">
-    <path class="stream-line-1" d="M 50 60 C 250 20, 450 100, 680 50 S 850 85, 910 65" fill="none" />
-    <path class="stream-line-2" d="M 50 220 C 220 260, 480 180, 720 230 S 860 200, 910 215" fill="none" />
-    <path class="stream-line-3" d="M 50 140 C 300 200, 600 80, 910 140" fill="none" />
+  <!-- Dynamic Event Flow Paths (Background Layer) -->
+  <g opacity="0.6">
+    <path d="M 40 60 C 240 20, 460 95, 680 50 S 860 80, 920 60" 
+          fill="none" stroke="url(#beam1)" stroke-width="2.5" stroke-dasharray="18 12">
+      <animate attributeName="stroke-dashoffset" from="600" to="0" dur="14s" repeatCount="indefinite" />
+    </path>
+    <path d="M 40 220 C 230 255, 470 175, 710 225 S 860 205, 920 215" 
+          fill="none" stroke="url(#beam2)" stroke-width="2" stroke-dasharray="14 18">
+      <animate attributeName="stroke-dashoffset" from="0" to="600" dur="16s" repeatCount="indefinite" />
+    </path>
+    <path d="M 40 140 C 280 190, 620 90, 920 140" 
+          fill="none" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="8 12">
+      <animate attributeName="stroke-dashoffset" from="400" to="0" dur="20s" repeatCount="indefinite" />
+    </path>
   </g>
 
-  <!-- Dynamic Particles (Data Packets) -->
+  <!-- Animated Data Stream Packets (Native SMIL for 100% Cross-Platform & GitHub Camo Reliability) -->
   <g>
-    <!-- Stream 1 Particles -->
-    <g class="particle-1">
-      <circle cx="50" cy="58" r="4.5" fill="#38bdf8" filter="url(#glow)" />
-    </g>
-    <g class="particle-2">
-      <circle cx="50" cy="62" r="3.5" fill="#818cf8" filter="url(#glow)" />
-    </g>
-    <!-- Stream 2 Particle -->
-    <g class="particle-3">
-      <circle cx="50" cy="222" r="4" fill="#f472b6" filter="url(#glow)" />
-    </g>
+    <!-- Packet 1: Top Stream -->
+    <circle r="4" fill="#38bdf8" filter="url(#glow)">
+      <animateMotion path="M 40 60 C 240 20, 460 95, 680 50 S 860 80, 920 60" 
+                     dur="7s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="7s" repeatCount="indefinite" />
+    </circle>
+    <!-- Packet 2: Top Stream (Staggered) -->
+    <circle r="3" fill="#818cf8" filter="url(#glow)">
+      <animateMotion path="M 40 60 C 240 20, 460 95, 680 50 S 860 80, 920 60" 
+                     dur="9s" begin="-3.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="9s" begin="-3.5s" repeatCount="indefinite" />
+    </circle>
+    <!-- Packet 3: Bottom Stream (Reversed) -->
+    <circle r="3.5" fill="#f472b6" filter="url(#glow)">
+      <animateMotion path="M 920 215 S 860 205, 710 225 C 470 175, 230 255, 40 220" 
+                     dur="8s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="8s" repeatCount="indefinite" />
+    </circle>
+    <!-- Packet 4: Middle Stream -->
+    <circle r="3.5" fill="#38bdf8" filter="url(#glow)">
+      <animateMotion path="M 40 140 C 280 190, 620 90, 920 140" 
+                     dur="11s" begin="-5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.8;0.8;0" keyTimes="0;0.1;0.9;1" dur="11s" begin="-5s" repeatCount="indefinite" />
+    </circle>
   </g>
 
-  <!-- Visual Stream Nodes in Background -->
-  <g class="pulsing-node" style="transform-origin: 160px 80px;">
-    <circle cx="160" cy="80" r="18" fill="#38bdf8" fill-opacity="0.08" />
-    <circle cx="160" cy="80" r="4" fill="#38bdf8" />
-  </g>
-  <g class="pulsing-node" style="transform-origin: 820px 70px; animation-delay: -1.2s;">
-    <circle cx="820" cy="70" r="18" fill="#818cf8" fill-opacity="0.08" />
-    <circle cx="820" cy="70" r="4" fill="#818cf8" />
-  </g>
-  <g class="pulsing-node" style="transform-origin: 780px 220px; animation-delay: -0.6s;">
-    <circle cx="780" cy="220" r="18" fill="#c084fc" fill-opacity="0.08" />
-    <circle cx="780" cy="220" r="4" fill="#c084fc" />
+  <!-- Pulsing Hub Nodes (Hardware & Cluster Topology) -->
+  <g transform="translate(150, 75)">
+    <circle cx="0" cy="0" r="14" fill="#38bdf8" fill-opacity="0.1">
+      <animate attributeName="r" values="10;18;10" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="fill-opacity" values="0.15;0.03;0.15" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="0" cy="0" r="3.5" fill="#38bdf8" />
   </g>
 
-  <!-- Stream Tech Badges (Floating subtle UI elements) -->
-  <g class="float-item" transform="translate(68, 32)">
-    <rect width="138" height="24" rx="12" fill="#1e293b" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+  <g transform="translate(810, 75)">
+    <circle cx="0" cy="0" r="14" fill="#818cf8" fill-opacity="0.1">
+      <animate attributeName="r" values="10;18;10" dur="3.5s" begin="-1s" repeatCount="indefinite" />
+      <animate attributeName="fill-opacity" values="0.15;0.03;0.15" dur="3.5s" begin="-1s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="0" cy="0" r="3.5" fill="#818cf8" />
+  </g>
+
+  <g transform="translate(790, 215)">
+    <circle cx="0" cy="0" r="14" fill="#c084fc" fill-opacity="0.1">
+      <animate attributeName="r" values="10;18;10" dur="3.2s" begin="-1.8s" repeatCount="indefinite" />
+      <animate attributeName="fill-opacity" values="0.15;0.03;0.15" dur="3.2s" begin="-1.8s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="0" cy="0" r="3.5" fill="#c084fc" />
+  </g>
+
+  <!-- Floating Ambient Tag Badges (Top Left & Top Right) -->
+  <g transform="translate(68, 28)">
+    <rect width="142" height="24" rx="12" fill="#1e293b" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
     <circle cx="14" cy="12" r="4" fill="#10b981"/>
-    <text x="26" y="16" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">KAFKA PROTOCOL</text>
+    <text x="26" y="16" fill="#94a3b8" class="badge-text">KAFKA PROTOCOL</text>
   </g>
 
-  <g class="float-item-delay" transform="translate(740, 32)">
-    <rect width="145" height="24" rx="12" fill="#1e293b" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+  <g transform="translate(740, 28)">
+    <rect width="150" height="24" rx="12" fill="#1e293b" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
     <circle cx="14" cy="12" r="4" fill="#38bdf8"/>
-    <text x="26" y="16" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">HIGH THROUGHPUT</text>
+    <text x="26" y="16" fill="#94a3b8" class="badge-text">HIGH THROUGHPUT</text>
   </g>
 
-  <!-- FOREGROUND CONTENT: Guaranteed high contrast, non-overlapping foreground layer -->
+  <!-- FOREGROUND LAYER: Text & Badges prominently in foreground, high contrast, non-obscured -->
   <g id="foreground-layer">
-    <!-- Category Super-title -->
-    <text x="480" y="85" 
+    <!-- Super-title Category -->
+    <text x="480" y="84" 
           text-anchor="middle" 
           fill="#38bdf8" 
-          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
-          font-size="12" 
-          font-weight="700" 
-          letter-spacing="2.5">
-      DISTRIBUTED SYSTEMS &bull; STREAM PROCESSING &bull; CLOUD PUBSUB
+          class="category-label">
+      DISTRIBUTED SYSTEMS &#8226; STREAM PROCESSING &#8226; CLOUD PUBSUB
     </text>
 
-    <!-- Main Title with high-contrast drop-shadow -->
-    <text x="480" y="132" 
+    <!-- Main Title with high-contrast shadow -->
+    <text x="480" y="130" 
           text-anchor="middle" 
           fill="url(#titleGrad)" 
-          filter="drop-shadow(0px 3px 6px rgba(0,0,0,0.85))"
-          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
-          font-size="34" 
-          font-weight="800" 
-          letter-spacing="-0.5">
+          filter="url(#textShadow)"
+          class="brand-title">
       Awesome Event Streaming Clients
     </text>
 
-    <!-- Subtitle in clear crisp white/slate -->
-    <text x="480" y="168" 
+    <!-- Subtitle -->
+    <text x="480" y="166" 
           text-anchor="middle" 
-          fill="#e2e8f0" 
-          filter="drop-shadow(0px 2px 4px rgba(0,0,0,0.9))"
-          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" 
-          font-size="15" 
-          font-weight="500">
+          fill="#f1f5f9" 
+          filter="url(#subShadow)"
+          class="brand-subtitle">
       Curated Directory of Cloud Streaming Platforms, Kafka Wire-Protocol Clients &amp; Pipelines
     </text>
 
-    <!-- Interactive Ecosystem Pillars in foreground -->
-    <g transform="translate(145, 204)">
+    <!-- Ecosystem Pillars in foreground -->
+    <g transform="translate(135, 202)">
       <!-- Pill 1 -->
       <g>
-        <rect width="180" height="32" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1.2"/>
-        <text x="90" y="20" text-anchor="middle" fill="#7dd3fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">⚡ Managed SaaS &amp; Brokers</text>
+        <rect width="190" height="32" rx="16" fill="#0f172a" fill-opacity="0.95" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1.2"/>
+        <text x="95" y="20" text-anchor="middle" fill="#7dd3fc" class="pill-text">&#9889; Managed SaaS &amp; Brokers</text>
       </g>
       <!-- Pill 2 -->
-      <g transform="translate(196, 0)">
-        <rect width="210" height="32" rx="16" fill="#0f172a" stroke="#818cf8" stroke-opacity="0.4" stroke-width="1.2"/>
-        <text x="105" y="20" text-anchor="middle" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">🔌 Multi-Language Clients</text>
+      <g transform="translate(208, 0)">
+        <rect width="220" height="32" rx="16" fill="#0f172a" fill-opacity="0.95" stroke="#818cf8" stroke-opacity="0.45" stroke-width="1.2"/>
+        <text x="110" y="20" text-anchor="middle" fill="#a5b4fc" class="pill-text">&#128268; Multi-Language Clients</text>
       </g>
       <!-- Pill 3 -->
-      <g transform="translate(422, 0)">
-        <rect width="220" height="32" rx="16" fill="#0f172a" stroke="#c084fc" stroke-opacity="0.4" stroke-width="1.2"/>
-        <text x="110" y="20" text-anchor="middle" fill="#e9d5ff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600">📊 Pricing &amp; Star Analytics</text>
+      <g transform="translate(446, 0)">
+        <rect width="230" height="32" rx="16" fill="#0f172a" fill-opacity="0.95" stroke="#c084fc" stroke-opacity="0.45" stroke-width="1.2"/>
+        <text x="115" y="20" text-anchor="middle" fill="#e9d5ff" class="pill-text">&#128202; Pricing &amp; Star Analytics</text>
       </g>
     </g>
   </g>
